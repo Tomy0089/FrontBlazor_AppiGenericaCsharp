@@ -13,17 +13,12 @@ builder.Services.AddScoped(sp => new HttpClient
     BaseAddress = new Uri("http://localhost:5034")
 });
 
-// Registrar el servicio generico de la API
-builder.Services.AddScoped<FrontBlazor_AppiGenericaCsharp.Services.ApiService>();
-
 var app = builder.Build();
 
-// Configurar el pipeline HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
 }
-
 
 app.UseAntiforgery();
 
